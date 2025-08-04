@@ -1,0 +1,241 @@
+/***************************************************************
+1) Scroll Wrapper
+***************************************************************/
+.payment-scroll-wrapper {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto !important;
+    background-color: #fff;
+    z-index: 9999;
+  }
+  
+  /***************************************************************
+  2) Centered Container
+  ***************************************************************/
+  .payment-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 15px;
+  }
+  
+  /***************************************************************
+  3) Top line: "Payment" + steps
+  ***************************************************************/
+  .payment-top-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .payment-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .payment-steps {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #999;
+  }
+  .payment-steps strong {
+    color: #000;
+    font-weight: 600;
+  }
+  
+  /***************************************************************
+  4) Divider
+  ***************************************************************/
+  .payment-divider {
+    margin: 0 0 15px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+  
+  /***************************************************************
+  5) Container + Clearfix
+  ***************************************************************/
+  .payment-container.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /***************************************************************
+  6) Payment Content (left side)
+  ***************************************************************/
+  .payment-content {
+    float: left;
+    width: 60%;
+    margin-right: 4%;
+  }
+  
+  .payment-section {
+    margin-bottom: 20px;
+  }
+  .payment-section h3 {
+    margin-top: 0;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  /* Payment methods row */
+  .payment-methods {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .method-box {
+    width: 130px;
+    height: 70px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border 0.2s;
+  }
+
+  /* Make the images wider within the box */
+.method-box img {
+    width: 200px;      /* Increase or decrease to taste */
+    height: auto;    /* Keeps aspect ratio */
+    max-height: 70px; /* Ensures the image doesn't overflow vertically */
+    object-fit: contain;
+  }
+
+  .method-box.selected {
+    border-color: #1976d2; /* highlight selected method */
+  }
+  .method-box span {
+    font-size: 14px;
+  }
+  
+  /***************************************************************
+  7) Form Rows
+  ***************************************************************/
+  .form-row {
+    margin-bottom: 16px;
+  }
+  .form-row label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  .form-row input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+  }
+  .half-row {
+    display: flex;
+    gap: 20px;
+  }
+  .half-row > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /***************************************************************
+  8) Billing Checkbox
+  ***************************************************************/
+  .billing-checkbox {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .billing-address-fields {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+  }
+  .billing-address-fields h4 {
+    margin: 0 0 10px 0;
+    font-size: 15px;
+  }
+  
+  /***************************************************************
+  9) Continue Button
+  ***************************************************************/
+  .continue-btn {
+    width: 100%;
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .continue-btn:hover {
+    background-color: #145ea2;
+  }
+  
+  /***************************************************************
+  10) Payment Summary (right side)
+  ***************************************************************/
+  .payment-summary-float {
+    float: right;
+    width: 35%;
+  }
+  
+  .payment-summary-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .payment-car-image {
+    width: 100%;
+    max-width: 280px;
+    display: block;
+    margin: 0 auto 15px;
+  }
+  
+  .payment-car-title {
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 15px;
+  }
+  
+  .payment-line {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  .total-line {
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  
+/* Error styling for inputs and error messages */
+.error {
+    border-color: red;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+  }  

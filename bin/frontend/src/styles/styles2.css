@@ -1,0 +1,242 @@
+/* If you want the entire page to not scroll, keep overflow: hidden. Otherwise, comment it out. */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  height: 100%;
+  /*overflow: hidden;   <-- comment out if you want normal page scroll */
+  box-sizing: border-box;
+}
+
+/* The main container for CarConfigurator (flex) */
+.car-configurator-container {
+  display: flex;
+  height: 100vh; /* fill viewport */
+  overflow: hidden; /* only internal panels can scroll */
+}
+
+/* Left side: Car images container (scrollable). 
+   Reduced top padding to move it "up" on the screen. */
+   .car-display-scrollable {
+    margin-top: -20px;
+    flex: 2;
+    position: relative;
+    overflow-y: auto;  /* allows vertical scrolling if content is tall */
+    padding: 10px 20px 20px; /* smaller top padding => moves carousel up */
+    box-sizing: border-box;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* top-align the content */
+  }
+  
+  .customization-panel-sticky {
+    flex: 1;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    overflow-y: auto;       /* can scroll if content is tall */
+    max-height: 100vh;      /* ensures the entire panel is scrollable */
+    /* add bottom padding so there's space after "Proceed to Checkout" */
+    padding: 20px 30px 60px; 
+    box-sizing: border-box;
+    background: #fff;
+  }
+  
+
+
+/* Model Title, etc. (unchanged from your code) */
+.model-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.overview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Vertical divider */
+.stat:not(:last-child) {
+  border-right: 1px solid #ccc;
+}
+
+.stat strong {
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.stat span {
+  font-size: 14px;
+  color: #5c5e62;
+}
+
+/* The carousel. 
+   We'll move the chat/zoom buttons a bit upward but not too high. */
+   .custom-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  /* The track for slides. */
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+  }
+  
+  /* Each slide. */
+  .carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* The main carousel image. */
+  .carousel-image {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center center;
+  }
+  .carousel-image.zoomed {
+    transform: scale(1.35);
+  }
+
+/* Move chat/zoom buttons up a bit, but keep them near bottom. 
+   Increase 'bottom' value if you want them higher. */
+   .chatbot-button {
+    position: absolute;
+    bottom: 20px; /* up from 30 => put them a bit higher or lower as needed */
+    left: 30px;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    padding: 4px;
+    cursor: pointer;
+  }
+  
+  .zoom-button {
+    position: absolute;
+    bottom: 28px; /* same bottom => horizontally aligned with chatbot button */
+    right: 30px;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    padding: 6px;
+    cursor: pointer;
+  }
+  
+  /* Carousel dots near the bottom, you can also shift them up if needed. */
+  .carousel-dots {
+    position: absolute;
+    bottom: 40px; 
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* The dots themselves. */
+  .carousel-dots .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  .carousel-dots .dot.active {
+    background-color: #333;
+  }
+
+/* Option groups, etc. remain the same. */
+.option-group {
+  margin-bottom: 20px;
+}
+
+.option-group label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+.color-options {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 5px;
+}
+.option-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.option-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: 0.3s;
+}
+.option-circle.selected {
+  border: 3px solid black;
+}
+.option-label {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.checkout-steps {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+.checkout-steps .step {
+  padding: 0 5px;
+}
+
+.checkout-steps .step.active {
+  font-weight: bold;
+  color: #1976d2;
+}
+
+.checkout-steps .separator {
+  margin: 0 4px;
+  color: #ccc;
+}

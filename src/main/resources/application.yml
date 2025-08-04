@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: evstoreproject4413
+  datasource:
+    url: jdbc:mysql://localhost:3306/evstore?useSSL=false&serverTimezone=UTC
+    username: root
+    password: yourpassword
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update

@@ -1,0 +1,486 @@
+/* Global Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: scroll; /* Enables vertical scrolling */
+  -ms-overflow-style: none;  /* Hide scrollbar in IE/Edge */
+  scrollbar-width: none;  /* Hide scrollbar in Firefox */
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* The main container for CarConfigurator (flex) */
+.car-configurator-container {
+  display: flex;
+  height: 100vh; /* fill viewport */
+  overflow: hidden; /* only internal panels can scroll */
+}
+
+/* Left side: Car images container (scrollable). 
+   Reduced top padding to move it "up" on the screen. */
+   .car-display-scrollable {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    flex: 2;
+    position: relative;
+    overflow-y: auto;  /* allows vertical scrolling if content is tall */
+    padding: 10px 20px 20px; /* smaller top padding => moves carousel up */
+    box-sizing: border-box;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* top-align the content */
+  }
+  
+  .customization-panel-sticky {
+    flex: 1;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    overflow-y: auto;      /*  can scroll if content is tall */
+    max-height: 100vh;      /* ensures the entire panel is scrollable */
+    /* add bottom padding so there's space after "Proceed to Checkout" */
+    padding: 20px 30px 60px; 
+    box-sizing: border-box;
+    background: #fff;
+  }
+
+  /* Main Container */
+.container {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.car-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* Left Side - Carousel */
+.car-display {
+  flex: 2;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Right Side - Panel */
+.customization-panel {
+  flex: 1;
+  padding: 30px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+/* Model Title */
+.model-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.overview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Vertical divider */
+.stat:not(:last-child) {
+  border-right: 1px solid #ccc;
+}
+
+.stat strong {
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.stat span {
+  font-size: 14px;
+  color: #5c5e62;
+}
+
+/* Custom Carousel Styles */
+.custom-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-image {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+  transform-origin: center center;
+}
+
+.carousel-image.zoomed {
+  transform: scale(1.35);
+}
+
+/* Chatbot button */
+.chatbot-button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  padding: 1px;
+  cursor: pointer;
+}
+
+/* Zoom button near bottom-right */
+.zoom-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1100;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* Navigation Dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carousel-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-dots .dot.active {
+  background-color: #333;
+}
+
+/* Option groups (Color & Tire) */
+.option-group {
+  margin-bottom: 20px;
+}
+.option-group label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+.color-options {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 5px;
+}
+.option-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.option-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: 0.3s;
+}
+.option-circle.selected {
+  border: 3px solid black;
+}
+.option-label {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* A simple dropdown container */
+.profile-dropdown {
+  position: absolute;
+  top: 48px;       /* just below the icon */
+  right: 0;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  min-width: 160px;
+  padding: 8px;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.profile-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-dropdown li {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.profile-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Make Logout text red */
+.logout-option {
+  color: red;
+}
+/* Profile settings page container */
+.profile-settings-page {
+  padding: 20px;
+  max-width: 600px;  
+  margin-top: 50px; /* Corrected unit */
+  margin-left: auto;
+  margin-right: auto; /* Centers the div */
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: #f4f4f4;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+
+.profile-settings-page h2 {
+  margin: 0 0 20px 0;
+  /* Increase font size to make heading bigger */
+  font-size: 24px;
+  font-weight: 600; /* optional, for a bolder heading */
+}
+
+/* The main form container */
+.profile-settings-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Keep or adjust the form-group rules as you wish */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 48%; 
+  min-width: 200px;
+}
+
+.form-group input {
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Optional: Tweak the extra sections if needed */
+.profile-extra-sections {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.profile-extra-sections > div {
+  flex: 1;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* Compare Modal Overlay */
+.compare-modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container that holds the table & content */
+.compare-modal-container {
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* 1) Outer overlay (optional) */
+.compare-modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 2) The main container (Box) uses flex to separate header, table, footer */
+.compare-modal-container {
+  background: #fff; /* or a subtle gradient if you like */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  overflow: hidden; /* so the corners are clipped */
+}
+
+/* 3) Header bar at top */
+.compare-header-bar {
+  background: linear-gradient(135deg, #f8f8f8, #ededed);
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.compare-title {
+  text-align: center;
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 4) Scrollable table area */
+.compare-table-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.compare-table {
+  width: 100%;
+}
+
+/* Table row style */
+.compare-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+  padding: 12px 0;
+}
+
+.compare-row:hover {
+  background-color: #fafafa;
+}
+
+/* Table head row */
+.compare-table-head {
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #ccc;
+}
+
+/* Cells */
+.compare-cell {
+  flex: 1;
+  text-align: center;
+  padding: 0 8px;
+  font-size: 15px;
+  color: #444;
+}
+
+/* The left column is for feature name */
+.feature-cell {
+  text-align: left;
+}
+
+/* Bold text for headings & features */
+.bold-text {
+  font-weight: 600;
+}
+
+/* Checkmark & dash styling */
+.checkmark {
+  color: #2ecc71; /* a bright green */
+  font-size: 18px;
+}
+.dash {
+  color: #bbb;
+  font-size: 18px;
+}
+
+/* 5) Footer bar at bottom */
+.compare-footer-bar {
+  border-top: 1px solid #ddd;
+  background: #f8f8f8;
+  padding: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-button {
+  background-color: #1976d2 !important;
+  color: #fff !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}

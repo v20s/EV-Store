@@ -1,0 +1,207 @@
+/* Allow the entire browser window to scroll if content exceeds viewport height */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;  /* ensures full height usage */
+  overflow-y: auto; /* allows page scrolling */
+}
+
+/***************************************************************
+1) Container & Layout
+***************************************************************/
+.cart-scroll-wrapper {
+  /* Remove position: relative & overflow to allow normal page scroll */
+  margin-top: 60px; /* If you have a fixed header, adjust so content is visible below it */
+  background-color: #fff;
+  min-height: 100vh; /* ensures the cart can grow with items */
+}
+
+.cart-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+/***************************************************************
+2) Top line: "Cart" + steps
+***************************************************************/
+.cart-top-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.cart-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cart-steps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #999;
+}
+
+.cart-steps strong {
+  color: #000;
+  font-weight: 600;
+}
+
+/***************************************************************
+3) Divider
+***************************************************************/
+.cart-divider {
+  margin: 0 0 15px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+/***************************************************************
+4) Main Cart Container (Flex)
+***************************************************************/
+.cart-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* space between the cart items and summary */
+}
+
+.cart-content {
+  flex: 2; /* takes more space than summary */
+}
+
+.cart-summary-float {
+  flex: 1;
+}
+
+/***************************************************************
+5) Cart Items
+***************************************************************/
+.cart-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  align-items: flex-start;
+  background-color: #fafafa;
+}
+
+/* Use a CSS class instead of inline styles to control image size */
+.cart-item-image {
+  width: 160px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0; /* prevents image from shrinking in narrow layouts */
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-details h3 {
+  margin: 0 0 5px 0;
+}
+
+.cart-item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+/***************************************************************
+6) Buttons (Clear, Continue, Remove)
+***************************************************************/
+.cart-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.cart-buttons button {
+  padding: 8px 12px;
+  cursor: pointer;
+  border: 1px solid #333;
+  background-color: #fff;
+  color: #333;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.cart-buttons button:hover {
+  background-color: #eee;
+}
+
+/***************************************************************
+7) Summary Box
+***************************************************************/
+.cart-summary-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.cart-summary-box h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cart-line {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.total-line {
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.cart-summary-box button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  background-color: #1976d2;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cart-summary-box button:hover {
+  background-color: #145ca1;
+}
+
+/***************************************************************
+8) Empty Cart
+***************************************************************/
+.empty-cart {
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 30px;
+  margin-top: 20px;
+}
+
+/***************************************************************
+9) Loading state
+***************************************************************/
+.loading-cart {
+  text-align: center;
+  padding: 40px;
+}

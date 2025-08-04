@@ -1,0 +1,201 @@
+/* Admin Dashboard container */
+.admin-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; 
+  padding-bottom: 40px;
+}
+
+/* Admin Dashboard title */
+.admin-title {
+  text-align: center;
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Space between the sections */
+.admin-container > div > * {
+  margin-bottom: 20px; 
+}
+ 
+  /* Card styles for each page section */
+  .card {
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    width: 100%;
+    max-width: 800px; /* Set a max width for larger screens */
+    margin: 0 auto; /* Center the card */
+  }
+  
+  /* Card content layout */
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Add spacing between elements */
+  }
+  
+  /* Section titles */
+  .section-title {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Input fields */
+  .input-field {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+  }
+  
+  /* Button styles */
+  .primary-btn, .danger-btn {
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+  }
+  
+  .primary-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .primary-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .danger-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .danger-btn:hover {
+    background-color: #e53935;
+  }
+  
+  /* List of reports */
+  .report-list, .order-list {
+    margin-top: 10px;
+  }
+  
+  .report-item, .order-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .report-item p {
+    margin: 5px 0;
+  }
+  
+  /* Checkboxes for vehicle data */
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1em;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .admin-container {
+      padding: 15px;
+    }
+  
+    .admin-title {
+      font-size: 2em;
+    }
+  
+    .input-field {
+      font-size: 0.9em;
+    }
+  
+    .primary-btn, .danger-btn {
+      font-size: 0.9em;
+    }
+  }
+  
+
+  .user-list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .user-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .user-info {
+    margin-bottom: 10px;
+  }
+  
+  .user-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .user-email {
+    color: #555;
+  }
+  
+  .user-details {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .user-role,
+  .user-region {
+    margin-bottom: 5px;
+  }
+  
+
+  /* Vehicle Management Section UI */
+.input-field, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

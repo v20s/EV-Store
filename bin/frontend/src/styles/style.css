@@ -1,0 +1,700 @@
+/* General Styles */
+.inventory-container {
+  margin: 20px;
+}
+
+.filter-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.filters {
+  width: 20%;
+  display: flex;
+  flex-direction: column; /* Stacks items vertically */
+  gap: 5px;
+}
+
+
+/* Container for the vehicle list */
+.vehicles-list {
+  display: grid;
+  width: 70%;
+  gap: 20px;
+  padding: 0px 20px 20px 20px;
+}
+
+/* Individual vehicle card */
+.vehicle-card {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Pushes items to top and bottom */
+  height: 100%; /* Ensure card takes full height */
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three vehicles per row */
+  gap: 20px;
+  padding: 0px 20px 20px 20px;
+}
+
+@media (max-width: 1024px) {
+  .vehicle-grid {
+      grid-template-columns: repeat(2, 1fr); /* Two per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .vehicle-grid {
+      grid-template-columns: repeat(1, 1fr); /* One per row on small screens */
+  }
+}
+
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+}
+
+
+.vehicle-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.vehicle-info, .vehicle-info p:first-child, .vehicle-info p:nth-child(2){
+  color: black;
+  text-align: left;
+}
+
+.vehicle-details {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Toggle Button Styles */
+.toggle-container {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.toggle-container button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  color: #828282;
+  background: white;
+  font-size: 14px;
+}
+
+.toggle-container button.active {
+  background: #ecf4fe;
+  font-weight: bold;
+  color: #1976d2;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown Styles */
+.dropdown {
+  background: white;
+  margin-bottom: 15px;
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.arrow {
+  font-size: 12px;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  padding: 10px;
+  font-size: 12px;
+}
+
+/* Radio Button Options */
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.radio-option input {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #888;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Custom Radio Checked State */
+.radio-option input:checked::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Selected Option Text */
+.selected {
+  font-weight: bold;
+  color: black;
+}
+
+.paint-section {
+  margin-top: 20px;
+}
+
+.paint-options {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.paint-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.paint-option input {
+  display: none; /* Hide default radio button */
+}
+
+.paint-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  transition: border 0.3s ease;
+}
+
+.paint-circle.selected {
+  border: 3px solid #007BFF; /* Highlight selected paint */
+}
+
+
+.filter-header {
+  display: flex;
+  justify-content: space-between; /* Ensures elements are pushed apart */
+  align-items: center;
+  padding: 20px 0px 20px 0px;
+  width: 100%;
+}
+
+.filter-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.sort-dropdown {
+  position: relative;
+  width: 200px;
+  margin-left: auto;
+}
+
+.sort-button {
+  background: white;
+  border: 1px solid white;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sort-options {
+  position: absolute;
+  background: white;
+  font-size: 14px;
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  display: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 180px;
+  z-index: 10;
+}
+
+.sort-dropdown:hover .sort-options {
+  display: block;
+}
+
+.sort-options li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.sort-options li.selected {
+  font-weight: bold;
+}
+
+.sort-options li:hover {
+  background: #f0f0f0;
+}
+
+.hot-deal-button, .reset-filters {
+  background-color: white; 
+  color: #828282;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.hot-deal-button.active, .reset-filters:hover {
+  background: #ecf4fe;
+  font-weight: bold;
+  color: #1976d2;
+}
+
+.vehicle-features {
+  display: flex;
+  gap: 10px; /* Adjust spacing between items */
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Adjust spacing between image and text */
+}
+
+.feature-image {
+  width: 15px; /* Adjust size as needed */
+  height: 15px;
+}
+
+.logout-button {
+  padding: 6px 12px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+
+/* Search Bar Styles */
+.search-bar-container {
+  padding: 20px; /* Increased padding */
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px; /* Add some spacing below the search bar */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.search-bar {
+  width: 100%; /* Full width */
+  padding: 15px; /* Increased padding */
+  font-size: 18px; /* Larger font size */
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Slightly rounded corners */
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Larger shadow on focus */
+}
+
+/* Adjust the filter header to accommodate the search bar */
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px; /* Increased padding */
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.filter-header h2 {
+  margin: 0;
+  font-size: 24px; /* Larger font size */
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+/* General Styles */
+.filter-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  .filters {
+    width: 20%;
+  }
+  
+/* Container for the vehicle list */
+.vehicles-list {
+    display: grid;
+    width: 70%;
+    gap: 20px;
+    padding: 0px 20px 20px 20px;
+  }
+  
+  /* Individual vehicle card */
+  .vehicle-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .vehicle-card.selected {
+    border: 2px solid #007BFF;
+  }
+
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three vehicles per row */
+    gap: 20px;
+    padding: 0px 20px 20px 20px;
+}
+
+@media (max-width: 1024px) {
+    .vehicle-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .vehicle-grid {
+        grid-template-columns: repeat(1, 1fr); /* One per row on small screens */
+    }
+}
+
+  
+  .vehicle-card:hover {
+    transform: translateY(-5px);
+  }
+
+  
+  .vehicle-image {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .vehicle-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .vehicle-price {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+  }
+  
+  .vehicle-details {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .vehicle-features {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  
+  .vehicle-feature {
+    background: #f5f5f5;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+  }  
+  
+  /* Toggle Button Styles */
+  .toggle-container {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+  
+  .toggle-container button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background: #f0f0f0;
+    font-size: 16px;
+  }
+  
+  .toggle-container button.active {
+    background: white;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dropdown Styles */
+  .dropdown {
+    background: white;
+    margin-bottom: 15px;
+  }
+  
+  .dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .arrow {
+    font-size: 12px;
+  }
+  
+  /* Dropdown Content */
+  .dropdown-content {
+    padding: 10px;
+  }
+  
+  /* Radio Button Options */
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 0;
+    cursor: pointer;
+  }
+  
+  .radio-option input {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #888;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  /* Custom Radio Checked State */
+  .radio-option input:checked::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Selected Option Text */
+  .selected {
+    font-weight: bold;
+    color: black;
+  }
+
+  .paint-section {
+    margin-top: 20px;
+  }
+  
+  .paint-options {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .paint-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .paint-option input {
+    display: none; /* Hide default radio button */
+  }
+  
+  .paint-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    transition: border 0.3s ease;
+  }
+  
+  .paint-circle.selected {
+    border: 3px solid #007BFF; /* Highlight selected paint */
+  }
+  
+
+  .filter-header {
+    display: flex;
+    justify-content: space-between; /* Push items apart */
+    align-items: center; /* Align items vertically */
+    padding: 10px 20px;
+  }
+  
+  .filter-header h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .log-out-button {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+
+  .log-out-button:hover {
+    background-color: #cc0000;
+  }
+
+  .sort-dropdown {
+    position: relative;
+    width: 200px;
+  }
+  
+  .sort-button {
+    background: white;
+    border: 1px solid white;
+    font-size: 16px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-between;
+  }
+  
+  .sort-options {
+    position: absolute;
+    background: white;
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    display: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 180px;
+    z-index: 10;
+  }
+  
+  .sort-dropdown:hover .sort-options {
+    display: block;
+  }
+  
+  .sort-options li {
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  .sort-options li.selected {
+    font-weight: bold;
+  }
+  
+  .sort-options li:hover {
+    background: #f0f0f0;
+  }
+  
+  .hot-deal-button {
+    background-color: #1976d2; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  .hot-deal-button.active {
+    background-color: #007BFF; /* Different color when active */
+  }
+
+  .order-now-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .order-now-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+
+  .order-now-button:hover {
+    background-color: #218838;
+  }
