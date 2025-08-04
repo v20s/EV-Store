@@ -5,7 +5,7 @@
 [![Database: MySQL](https://img.shields.io/badge/Database-MySQL-blueviolet)](https://www.mysql.com/)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 
-> Cloud-native, full-stack e-commerce for browsing and purchasing electric vehicles :contentReference[oaicite:10]{index=10}
+> This is a full-stack e-commerce application built using Spring Boot for the backend and React.js for the frontend. It allows users to browse and purchase electric vehicle-related products. The backend communicates with a MySQL database, and the project is structured for easy development using Maven and Eclipse (with Spring Tool Suite).
 
 ---
 
