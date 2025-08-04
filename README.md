@@ -1,6 +1,6 @@
 # 🚗 Electric Vehicle (EV) Store
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/your-username/evstoreproject4413/ci.yml?branch=main)](https://github.com/your-username/evstoreproject4413/actions)  
+[![Build Status](https://img.shields.io/github/actions/workflow/status/v20s/evstoreproject4413/ci.yml?branch=main)](https://github.com/your-username/evstoreproject4413/actions)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 [![Demo Video](https://img.shields.io/badge/Demo–Watch%20Now-blue)](https://evstoreproject4413.com/)  
 
